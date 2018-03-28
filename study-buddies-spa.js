@@ -74,3 +74,122 @@ $("[data-trigger=collapse]").on("click",function(){
     $(this).addClass($(this).attr("data-button-class"));
   }
 });
+
+
+
+
+// bar selectors
+const $overallBar = $(".default");
+const $htmlBar = $("[data-panel-ref='html']");
+const $cssBar = $("[data-panel-ref='css']");
+const $javascriptBar = $("[data-panel-ref='javascript']");
+const $jqueryBar = $("[data-panel-ref='jquery']");
+const $projectBar = $("[data-panel-ref='projects']");
+
+
+// update progress when checkbox status changes
+$("input").change(function() {
+  const category = getCheckboxCategory($(this))
+  const bar = $("[data-panel-ref='"+category+"']");
+  updateBar(bar);
+  updateBar($overallBar)
+});
+
+
+// return sanitized category values
+function getCheckboxCategory(checkbox) {
+  console.log(checkbox.attr("data-category-type"));
+  if (checkbox.attr("data-category-type") ===  "project") {
+    return "projects"
+  }
+  else {
+    return checkbox.attr("data-category-type")
+  }
+}
+
+
+// initial page load
+function updateBars() {
+  const bars = [
+    $overallBar, 
+    $htmlBar, 
+    $cssBar,
+    $javascriptBar, 
+    $jqueryBar, 
+    $projectBar
+  ]
+
+  for (let i=0; i<bars.length; i++) {
+    updateBar(bars[i]);
+  }
+}
+updateBars();
+
+
+function updateBar(bar) {
+  const progress = getProgress();
+  let width = 0; // bar progress
+  const time = setInterval(fillBar, 0); // set animation speed
+  const percent = getPercent(bar,progress); // get category percent
+  
+  // initial bar size
+  bar.css("width", width + "%") ;
+  bar.text(percent.toFixed(1) + "%");
+
+  function fillBar() {
+    if (width >= percent) {
+      clearInterval(time); // stop interval
+    } 
+    else {
+      width++; 
+      bar.css("width", width + "%") ; // increase bar
+      bar.text(percent.toFixed(1) + "%")
+    }
+  }
+}
+
+
+// return user progress properties
+function getProgress() {
+  return progress = {
+    overall: {
+      "checkedBoxes": $(".exercise-list input:checked").length, 
+      "totalBoxes": $(".exercise-list input").length
+    },
+    html: {
+      "checkedBoxes": $(".exercise-list input[data-category-type='html']:checked").length,
+      "totalBoxes": $(".exercise-list input[data-category-type='html']").length
+    },
+    css: {
+      "checkedBoxes": $(".exercise-list input[data-category-type='css']:checked").length,
+      "totalBoxes": $(".exercise-list input[data-category-type='css']").length
+    },
+    javascript: {
+      "checkedBoxes": $(".exercise-list input[data-category-type='javascript']:checked").length,
+      "totalBoxes": $(".exercise-list input[data-category-type='javascript']").length
+    },
+    jquery: {
+      "checkedBoxes": $(".exercise-list input[data-category-type='jquery']:checked").length,
+      "totalBoxes": $(".exercise-list input[data-category-type='jquery']").length
+    },
+    projects: {
+      "checkedBoxes": $(".exercise-list input[data-category-type='project']:checked").length,
+      "totalBoxes": $(".exercise-list input[data-category-type='project']").length
+    }
+  }
+}
+
+
+function getPercent(bar,progress) { 
+  if (bar.attr("class") === "progress default") {
+    return (progress.overall.checkedBoxes / progress.overall.totalBoxes) * 100;
+  }
+  else {
+    const category = bar.attr("data-panel-ref");
+    return (progress[category].checkedBoxes / progress[category].totalBoxes) * 100;
+  }
+}
+
+
+
+
