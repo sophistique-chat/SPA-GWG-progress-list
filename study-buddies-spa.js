@@ -32,10 +32,6 @@ $(".tabs-nav a").on("click",function(){
   $(".progress[data-panel-ref]").attr("class", "progress");
   $(".progress[data-panel-ref=" + toggle + "]").addClass($(this).attr("data-class-ref"));
 });
-$(function(){
-  $(".state-buttons").html($(".state-buttons").attr("data-start-state-text"));
-  $(".tabs-nav li:first-child a").click();
-});
 
 
 $("input[id*=lesson]").on("click", function(){
