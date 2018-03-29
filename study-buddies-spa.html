@@ -11,14 +11,26 @@
 
 </head>
 <body id="main-container" class="display-flex flex-col">
-    <header class="display-flex flex-justify-content-between flex-align-items-center">
-      <figure class="logo margin-x-5 margin-y-2">
-        <img src="https://s26.postimg.org/53eo07hvt/logo.png" alt="Study Buddies Logo">
-      </figure>
-      <figure class="user-avatar margin-x-5 margin-y-2">
-        <img src="https://s26.postimg.org/cw5bs6g55/user.jpg" alt="(User Name) Avatar">
-      </figure>
-    </header>
+  <header class="display-flex flex-justify-content-between flex-align-items-center">
+    <figure class="logo margin-x-5 margin-y-2">
+      <img src="https://s26.postimg.org/53eo07hvt/logo.png" alt="Study Buddies Logo">
+    </figure>
+    <figure class="user-avatar margin-x-5">
+      <img src="https://s26.postimg.org/cw5bs6g55/user.jpg" alt="(User Name) Avatar"  data-toggle="dropdown" data-toggle-ref="dropdown">
+      <ul class="dropdown" id="dropdown">
+      <li>
+        <div class="user-info">
+          <span class="user-name">Angel Manuel Couso</span>
+          <span class="user-email">angelcouso9111232@gmail.com</span>
+        </div>
+        <div class="user-avatar-space"></div>
+      </li>
+      <li><a href="#">Change Account Info</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+    </figure>
+
+  </header>
     <main class="display-flex padding-2">
       <section class="col-width-3 padding-3">
         <div class="panels active">

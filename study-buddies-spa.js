@@ -1,4 +1,4 @@
-/* 
+/*
   * Copyright 2018 Study Buddies
   *  Notes [Sachin-3/22/2018]
   *  @Node class is used to represent checklist node
@@ -198,9 +198,6 @@ $(function () {
 });
 
 
-
-
-
 /*Angel & Steve*/
 $(function () {
   $(".state-buttons").html($(".state-buttons").attr("data-start-state-text"));
@@ -249,6 +246,7 @@ $("input[id*=lesson]").on("click", function(){
     parent.find("span").removeClass("active");
   } });
 
+
 $("input[id*=-]").on("click", function(){
   let parent = $(this).parents(".exercise-list");
   let lessonNumber = $(this).attr("id").split("-");
@@ -259,12 +257,8 @@ $("input[id*=-]").on("click", function(){
     $("#lesson" + lessonNumber[0]).prop("checked", false);
     $(this).parents(".lesson-title").find("span").removeClass("active");
   }
-  
-  
-   
-  
-  
 });
+
 
 $("[data-trigger=collapse]").on("click",function(){
   $("#" + $(this).attr("data-toggle")).toggleClass("active");
@@ -279,6 +273,21 @@ $("[data-trigger=collapse]").on("click",function(){
   }
 });
 
+
+$("[data-toggle=dropdown]").on("click",function(e){
+  e.stopPropagation();
+  let toggleRef = "#" + $(this).attr("data-toggle-ref");
+  $(toggleRef).toggleClass("active");
+  $(toggleRef).css({
+    "right": 20,
+    "top" : 0,
+  });
+  $(".user-avatar img").toggleClass("zoom");
+});
+$(document).on("click", function() {
+  $(".dropdown").removeClass("active");
+  $(".user-avatar img.zoom").removeClass("zoom");
+});
 
 
 
@@ -315,11 +324,11 @@ function getCheckboxCategory(checkbox) {
 // initial page load
 function updateBars() {
   const bars = [
-    $overallBar, 
-    $htmlBar, 
+    $overallBar,
+    $htmlBar,
     $cssBar,
-    $javascriptBar, 
-    $jqueryBar, 
+    $javascriptBar,
+    $jqueryBar,
     $projectBar
   ]
 
@@ -335,7 +344,7 @@ function updateBar(bar) {
   let width = 0; // bar progress
   const time = setInterval(fillBar, 0); // set animation speed
   const percent = getPercent(bar,progress); // get category percent
-  
+
   // initial bar size
   bar.css("width", width + "%") ;
   bar.text(percent.toFixed(1) + "%");
@@ -343,9 +352,9 @@ function updateBar(bar) {
   function fillBar() {
     if (width >= percent) {
       clearInterval(time); // stop interval
-    } 
+    }
     else {
-      width++; 
+      width++;
       bar.css("width", width + "%") ; // increase bar
       bar.text(percent.toFixed(1) + "%")
     }
@@ -357,7 +366,7 @@ function updateBar(bar) {
 function getProgress() {
   return progress = {
     overall: {
-      "checkedBoxes": $(".exercise-list input:checked").length, 
+      "checkedBoxes": $(".exercise-list input:checked").length,
       "totalBoxes": $(".exercise-list input").length
     },
     html: {
@@ -384,7 +393,7 @@ function getProgress() {
 }
 
 
-function getPercent(bar,progress) { 
+function getPercent(bar,progress) {
   if (bar.attr("class") === "progress default") {
     return (progress.overall.checkedBoxes / progress.overall.totalBoxes) * 100;
   }
@@ -393,7 +402,3 @@ function getPercent(bar,progress) {
     return (progress[category].checkedBoxes / progress[category].totalBoxes) * 100;
   }
 }
-
-
-
-
