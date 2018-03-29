@@ -740,6 +740,9 @@ footer {
   color:white;
   opacity: 0.8;
 }
+
+/*Here: the font-size of 13px makes the bottom multilang text jumpy*/
+
 .text-left:hover, .text-right:hover {
 color:black;
 opacity:0.8;
