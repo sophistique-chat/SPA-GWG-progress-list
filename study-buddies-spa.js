@@ -205,26 +205,12 @@ $(function () {
 
 /*Angel & Steve*/
 $(function () {
-  $(".state-buttons").html($(".state-buttons").attr("data-start-state-text"));
   $(".tabs-nav li:first-child a").click();
-});
-
-
-$(".state-buttons").on("click",function(){
-  if($(this).attr("state") === "0") {
-    $(this).addClass("waiting");
-    $(this).html($(this).attr("data-first-state-text"));
-    $(this).attr("state", "1")
-  } else if($(this).attr("state") === "1") {
-    $(this).addClass("success");
-    $(this).removeClass("waiting");
-    $(this).html($(this).attr("data-second-state-text"));
-    $(this).attr("state", "2")
-  } else if($(this).attr("state") === "2") {
-    $(this).removeClass("success");
-    $(this).html($(this).attr("data-start-state-text"));
-    $(this).attr("state", "0")
-  }
+  $(".check-box-label").each(function() {
+    if ($(this).find("input:checked").length !== 0) {
+      $(this).find("span").addClass("active");
+    }
+  });
 });
 
 
