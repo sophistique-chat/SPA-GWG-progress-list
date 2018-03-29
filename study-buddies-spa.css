@@ -548,7 +548,8 @@ button, .button {
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
-  height: 2rem;
+  height: 2.25rem;
+  
 }
 .progress {
   background-color: #64788a;
@@ -650,9 +651,11 @@ header {
 }
 header, footer {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+  opacity:0.8;
 }
 main, .tab-panel .panels  {
   flex: 1;
+  overflow: auto;
 }
 .logo img, .user-avatar img {
   width: auto;
@@ -680,7 +683,7 @@ label[for=progress-bar] {
   height: 100%;
 }
 footer {
-  background-color: #02b7e9;
+  background-color: #687788;
   height: 60px;
 }
 .foot-note div {
@@ -692,6 +695,12 @@ footer {
 }
 .foot-note .text-left {
   text-align: right;
+  color:white;
+  opacity: 0.8;
+}
+.text-right {
+  color: white;
+  opacity:0.8;
 }
 .foot-note .icon {
   position: relative;
@@ -724,9 +733,18 @@ footer {
   color: inherit;
 }
 .social-links a:hover {
-  color: #555;
+  color: white;
+  opacity:0.8;
 }
-
+.copyright:hover {
+  color:white;
+  opacity: 0.8;
+}
+.text-left:hover, .text-right:hover {
+color:black;
+opacity:0.8;
+  font-size: 13px;
+}
 
 /* Checkboxes Style */
 
@@ -882,5 +900,5 @@ input.check-box:checked ~ label.text-label {
 }
 .lesson-title label {
   line-height: 1em;
-  padding-bottom: 4px
+  padding-bottom: 4px;
 }
