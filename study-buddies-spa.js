@@ -206,9 +206,13 @@ $(function () {
 /*Angel & Steve*/
 $(function () {
   $(".tabs-nav li:first-child a").click();
-  $(".check-box-label").each(function() {
-    if ($(this).find("input:checked").length !== 0) {
-      $(this).find("span").addClass("active");
+  $(".lesson-title").each(function() {
+    if($(this).find(".exercise-list input").length === $(this).find(".exercise-list input:checked").length) {
+      $(this).find(".check-box-label input").first().prop("checked", true);
+      $(this).find(".check-box-label .muted").addClass("active");
+    } else {
+      $(this).find(".check-box-label input").first().prop("checked", false);
+      $(this).find(".check-box-label .muted").removeClass("active");
     }
   });
 });
