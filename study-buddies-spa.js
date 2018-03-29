@@ -148,9 +148,9 @@ SBP.Events = {
             // Create node and store in map
             let id = target.attr("id");
             SBP.Helpers.updateCheckListMap(id, target);
-            var parent = target.parent();
-            if (parent.hasClass('lessonTitle')) {
-                parent.find('li input').each(function () {
+            var grandParent = target.parent().parent();
+            if (grandParent.hasClass('lesson-title')) {
+                grandParent.find('li input').each(function () {
                     let childId = $(this).attr("id");
                     SBP.Helpers.updateCheckListMap(childId, $(this));
                 });
