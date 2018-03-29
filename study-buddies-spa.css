@@ -652,7 +652,6 @@ header {
 }
 header, footer {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
-  opacity:0.8;
 }
 main, .tab-panel .panels  {
   flex: 1;
