@@ -79,6 +79,8 @@ SBP.UI = {
                     $(this).prop('checked', isChecked);
                 }
             });
+            // Update Progress Bars
+            updateBars();
         }
         catch (ex) {
             console.log(ex.message);
