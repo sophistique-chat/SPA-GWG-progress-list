@@ -698,31 +698,33 @@ footer {
 }
 .foot-note .text-left {
   text-align: right;
-  color:white;
+  color: white;
+  width: 200px;
   opacity: 0.8;
 }
 .text-right {
   color: white;
-  opacity:0.8;
+  width: 200px;
+  opacity: 0.8;
 }
 .foot-note .icon {
   position: relative;
   font-size: 40px;
-  width: 50px;
-  vertical-align: text-bottom;
+  width: 55px;
+  vertical-align: text-top;
   color: #e80243;
-  margin-left: 3px;
+  margin-left: 10px;
 }
 .foot-note .icon .fas {
   position: absolute;
   left: 0;
-  top: -44px;
+  top: -20px;
 }
 .foot-note .icon .fa-heartbeat {
   color: #333;
   left: 0px;
   font-size: 45px;
-  top: -46px
+  top: -22px
 }
 .social-links {
   list-style: none;
@@ -740,16 +742,16 @@ footer {
   opacity:0.8;
 }
 .copyright:hover {
-  color:white;
+  color: white;
   opacity: 0.8;
 }
 
 /*Here: the font-size of 13px makes the bottom multilang text jumpy*/
 
 .text-left:hover, .text-right:hover {
-color:black;
-opacity:0.8;
-  font-size: 13px;
+  color: #333;
+  font-size: 12px;
+  opacity: 1;
 }
 
 /* Checkboxes Style */

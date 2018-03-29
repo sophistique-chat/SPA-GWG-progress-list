@@ -277,7 +277,9 @@ $("[data-toggle=dropdown]").on("click",function(e){
   });
   $(".user-avatar img").toggleClass("zoom");
 });
-
+$(".dropdown li:first-child").on("click", function(e){
+  e.stopPropagation();
+});
 $(document).on("click", function() {
   $(".dropdown").removeClass("active");
   $(".user-avatar img.zoom").removeClass("zoom");
