@@ -534,7 +534,7 @@ button, .button {
   padding: 2rem 0.8rem;
   overflow: auto;
 }
-.panels.active, .exercise-list.active, .muted.active {
+.panels.active, .exercise-list.active, .muted.active, .dropdown.active {
   display: block !important;
 }
 
@@ -549,13 +549,14 @@ button, .button {
   display: -webkit-box;
   display: -ms-flexbox;
   height: 2.25rem;
-  
+
 }
 .progress {
   background-color: #64788a;
   text-align: center;
   border-radius: 3px;
   border: none !important;
+  padding-top: 10px;
 }
 /* we can add more colors but i'll put in here some examples */
 .primary, .active[data-class-ref="primary"] {
@@ -647,7 +648,7 @@ body {
 }
 header {
   background-color: #02b7e9;
-  min-height: 90px;
+  min-height: 95px;
 }
 header, footer {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
@@ -664,6 +665,9 @@ main, .tab-panel .panels  {
 .user-avatar img {
   border-radius: 50%;
   border: 3px solid #4c4e4e;
+  position: relative;
+  z-index: 4000;
+  cursor: pointer;
 }
 .progress-bar {
   margin-bottom: .75rem;
@@ -808,7 +812,7 @@ input.check-box:checked ~ label.text-label {
   list-style-type: none;
   font-weight: normal;
   display: none;
-} 
+}
 
 
 .check-box-label {
@@ -821,7 +825,7 @@ input.check-box:checked ~ label.text-label {
    cursor: pointer;
    font-size: 16px;
 }
-            
+
  .check-box {
   position: absolute;
   z-index: -1;
@@ -857,7 +861,7 @@ input.check-box:checked ~ label.text-label {
 .css input:checked ~ .indicator {
   background: #0280a4;
 }
-        
+
 .indicator:after {
   box-sizing: unset;
   content: '';
@@ -867,7 +871,7 @@ input.check-box:checked ~ label.text-label {
 .check-box-label input:checked ~ .indicator:after {
   display: block;
 }
-        
+
 .check-box-label .indicator:after {
   left: 5px;
   top: 0px;
@@ -904,4 +908,76 @@ input.check-box:checked ~ label.text-label {
 .lesson-title label {
   line-height: 1em;
   padding-bottom: 4px;
+}
+
+/* ------------------------------------------------------ */
+
+/* DropDown Menu */
+.dropdown {
+  position: fixed;
+  list-style: none;
+  display:none;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+  z-index: 2000;
+}
+.dropdown li:first-child {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-top: none;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+  text-align: left;
+  padding: 5px 15px;
+  color: #333;
+}
+.dropdown li {
+  border-bottom: 1px solid #fff;
+  text-align: center;
+}
+.dropdown li:last-child {
+  border-bottom: none;
+}
+.dropdown li a {
+  padding: 10px 15px;
+  width: 100%;
+  display: inline-block;
+  text-decoration: none;
+  background-color: #64788a;
+  color: #fff
+}
+.dropdown li a:hover {
+  background-color: #778ea2
+}
+.dropdown img {
+  width: 80px;
+  height: 80px;
+  margin: 5px 20px 5px 0;
+  border: 3px solid #4c4e4e;
+  border-radius: 50%
+}
+.dropdown li span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 170px;
+  display: block;
+}
+.dropdown .user-email {
+  color: #999;
+  font-size: 0.85em;
+  margin-top: 7px
+}
+.dropdown .user-name {
+  font-size: 1.2em;
+}
+.dropdown .user-avatar-space {
+  width: 100px;
+  height: 85px;
+}
+.user-avatar img.zoom {
+  margin-top: 3px;
+  width: 85;
+  height: 85px;
 }

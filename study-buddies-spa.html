@@ -11,39 +11,50 @@
 
 </head>
 <body id="main-container" class="display-flex flex-col">
-    <header class="display-flex flex-justify-content-between flex-align-items-center">
-      <figure class="logo margin-x-5 margin-y-2">
-        <img src="https://s26.postimg.org/53eo07hvt/logo.png" alt="Study Buddies Logo">
-      </figure>
-      <figure class="user-avatar margin-x-5 margin-y-2">
-        <img src="https://s26.postimg.org/cw5bs6g55/user.jpg" alt="(User Name) Avatar">
-      </figure>
-    </header>
+  <header class="display-flex flex-justify-content-between flex-align-items-center">
+    <figure class="logo margin-x-5 margin-y-2">
+      <img src="https://s26.postimg.org/53eo07hvt/logo.png" alt="Study Buddies Logo">
+    </figure>
+    <figure class="user-avatar margin-x-5">
+      <img src="https://s26.postimg.org/cw5bs6g55/user.jpg" alt="(User Name) Avatar"  data-toggle="dropdown" data-toggle-ref="dropdown">
+      <ul class="dropdown" id="dropdown">
+      <li>
+        <div class="user-info">
+          <span class="user-name">Angel Manuel Couso</span>
+          <span class="user-email">angelcouso9111232@gmail.com</span>
+        </div>
+        <div class="user-avatar-space"></div>
+      </li>
+      <li><a href="#">Change Account Info</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+    </figure>
+  </header>
     <main class="display-flex padding-2">
       <section class="col-width-3 padding-3">
         <div class="panels active">
-          <label for="progress-bar" class="display-flex"><i class="fab fa-html5 margin-right-2"></i> HTML <span class="muted margin-left-auto">5/20 Completed (25%)</span> </label>
+          <label for="progress-bar" class="display-flex flex-align-items-center"><i class="fab fa-html5 margin-right-2"></i> HTML <span class="muted margin-left-auto">5/20 Completed (25%)</span> </label>
           <div class="progress-bar">
             <div data-panel-ref="html" class="progress" style="width: 25%"></div>
           </div>
-          <label for="progress-bar" class="display-flex"><i class="fab fa-css3-alt margin-right-2"></i> CSS <span class="muted margin-left-auto">2/5 Completed (40%)</span> </label>
+          <label for="progress-bar" class="display-flex flex-align-items-center"><i class="fab fa-css3-alt margin-right-2"></i> CSS <span class="muted margin-left-auto">2/5 Completed (40%)</span> </label>
           <div class="progress-bar">
             <div data-panel-ref="css" class="progress" style="width: 50%"></div>
           </div>
-          <label for="progress-bar" class="display-flex"><i class="fab fa-js-square margin-right-2"></i> JavaScript <span class="muted margin-left-auto">4/10 Completed (40%)</span> </label>
+          <label for="progress-bar" class="display-flex flex-align-items-center"><i class="fab fa-js-square margin-right-2"></i> JavaScript <span class="muted margin-left-auto">4/10 Completed (40%)</span> </label>
           <div class="progress-bar">
             <div data-panel-ref="javascript" class="progress" style="width: 40%"></div>
           </div>
-          <label for="progress-bar" class="display-flex"><i class="fab fa-html5 margin-right-2"></i> JQuery <span class="muted margin-left-auto">0/10 Completed (0%)</span> </label>
+          <label for="progress-bar" class="display-flex flex-align-items-center"><i class="fab fa-html5 margin-right-2"></i> JQuery <span class="muted margin-left-auto">0/10 Completed (0%)</span> </label>
           <div class="progress-bar">
             <div data-panel-ref="jquery" class="progress" style="width: 0%"></div>
           </div>
-          <label for="progress-bar" class="display-flex"><i class="fas fa-folder-open margin-right-2"></i> Projects <span class="muted margin-left-auto">5/5 Completed (100%)</span> </label>
+          <label for="progress-bar" class="display-flex flex-align-items-center"><i class="fas fa-folder-open margin-right-2"></i> Projects <span class="muted margin-left-auto">5/5 Completed (100%)</span> </label>
           <div class="progress-bar">
             <div data-panel-ref="projects" class="progress" style="width: 100%"></div>
           </div>
           <div class="divider margin-bottom-3 margin-top-4"></div>
-          <label for="progress-bar" class="display-flex"><i class="fas fa-chart-area margin-right-2"></i> Overall Progress <span class="muted margin-left-auto">16/50 Completed (32%)</span> </label>
+          <label for="progress-bar" class="display-flex flex-align-items-center"><i class="fas fa-chart-area margin-right-2"></i> Overall Progress <span class="muted margin-left-auto">16/50 Completed (32%)</span> </label>
           <div class="progress-bar">
             <div class="progress default" style="width: 32%"></div>
           </div>
