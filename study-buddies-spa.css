@@ -714,12 +714,12 @@ footer {
 }
 .foot-note .text-left {
   text-align: right;
-  color:white;
+  color: #EAECEF;
   width: 200px;
   opacity: 0.8;
 }
 .text-right {
-  color: white;
+  color: #EAECEF;
   width: 200px;
   opacity:0.8;
 }
@@ -728,7 +728,7 @@ footer {
   font-size: 40px;
   width: 55px;
   vertical-align: text-top;
-  color: #e80243;
+  color: #EAECEF;
   margin-left: 10px;
 }
 .foot-note .icon .fas {
@@ -737,14 +737,16 @@ footer {
   top: -20px;
 }
 .foot-note .icon .fa-heartbeat {
-  color: #4D5150;
+  color: #515154;
   left: 0px;
   font-size: 45px;
-  top: -22px
+  top: -22px;
+  opacity:0.9;
 }
 .social-links {
   list-style: none;
   font-size: 22px;
+  color:#515154;
 }
 .social-links li {
   display: inline-block;
@@ -754,12 +756,15 @@ footer {
   color: inherit;
 }
 .social-links a:hover {
-  color: white;
+  color: #EAECEF;
   opacity:0.8;
 }
 .copyright:hover {
-  color: white;
+  color: #EAECEF;
   opacity: 0.8;
+}
+.copyright {
+  color:#515154;
 }
 .text-left:hover, .text-right:hover {
   color: #333;
