@@ -571,6 +571,7 @@ button, .button {
   background-color: #0280a4;
   border-color: #026f8d;
   box-shadow: inset 0 0 4px #026f8d;
+  color:white;
 }
 .active[data-class-ref="primary"]:hover {
   background-color: #0280a4;
@@ -585,6 +586,7 @@ button.primary:hover, .button.primary:hover {
   background-color: #9742ff;
   border-color: #aa00ff;
   box-shadow: inset 0 0 4px  #aa00ff;
+  color:white;
 }
 .active[data-class-ref="secondary"]:hover {
   background-color: #9742ff;
@@ -599,6 +601,7 @@ button.secondary:hover, .button.secondary:hover {
   background-color: #e80243;
   border-color: #d0013c;
   box-shadow: inset 0 0 4px #d0013c;
+  color:white;
 }
 .active[data-class-ref="error"]:hover {
   background-color: #e80243;
@@ -613,6 +616,7 @@ button.error:hover, .button.error:hover {
   background-color: #c85000;
   border-color: #b95c00;
   box-shadow: inset 0 0 4px #b95c00;
+  color:white;
 }
 .active[data-class-ref="waiting"]:hover {
   background-color: #c85000;
@@ -627,6 +631,7 @@ button.waiting:hover, .button.waiting:hover {
   background-color: #02835e;
   border-color: #028378;
   box-shadow: inset 0 0 4px  #028378;
+  color:white;
 }
 .active[data-class-ref="success"]:hover {
   background-color: #02835e;
