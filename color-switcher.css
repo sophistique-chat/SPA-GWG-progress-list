@@ -569,7 +569,7 @@ button, .button {
   background-color: #96C1E4;
   border-color: #A1CFF4;
   box-shadow: inset 0 0 2px white;
-  color:#757577;
+ color:#757577;
 }
 .active[data-class-ref="primary"]:hover {
   background-color: #A1CFF4;
@@ -649,9 +649,6 @@ button.success:hover, .button.success:hover {
   background-color:  #00b5e7;
 }
 
-
-
-
 /* ------------------------------------- */
 /* the doc.css file  */
 
@@ -666,7 +663,7 @@ body {
 header {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
  background-color: #50B2E2;
-  min-height: 90px;
+  min-height: 95px;
 }
 main, .tab-panel .panels  {
   flex: 1;
@@ -1016,6 +1013,7 @@ position:absolute;
   color:#4F4D4D;
   margin-left:88%;
   margin-top:40px;
+}
 
 /* media queries */
 /* ------------------------------------------------------ */
@@ -1034,14 +1032,14 @@ position:absolute;
   }
   .course-list {
     padding-left: 0;
-    margin-right: 0;
+   margin-right: 0;
   }
   .col-width-3 {
     width: 100%;
   }
   .panels {
     padding: 2rem 2rem;
-  }
+ }
 }
 @media only screen and (max-width:680px) {
   footer {
@@ -1049,7 +1047,7 @@ position:absolute;
     height: auto;
   }
   .copyright {
-    padding: 1rem 0;
+   padding: 1rem 0;
   }
   .social-links {
     margin: 1rem 26px 1rem 0;
@@ -1058,8 +1056,8 @@ position:absolute;
 @media only screen and (max-width:550px) {
   .padding-2 {
     padding: .5rem .3rem;
-  }
+ }
   .padding-x-5 {
     padding: 0;
-  }
+ }
 }
