@@ -1000,24 +1000,24 @@ input.check-box:checked ~ label.text-label {
 position:absolute;
   font-size: 20px;
   color:#4F4D4D;
-  margin-left:90%;
-  margin-top:20px;
+ margin-left:93.5%;
+ margin-top: 0;
 }
 /*temporary location for the color switcher*/
 
-.fa-paint-brush:hover {
+.fa-paint-brush:hover, .changeTheme:hover  {
   cursor: pointer;
 }
-.fa-paint-brush {
-  position:fixed;
-}
 .changeTheme {
-  position:fixed;
-  font-size: 12px;
+  position:absolute;
+  font-size: 14px;
   font-weight:bold;
   color:#4F4D4D;
+margin-left:95%;
+ margin-top:0;
+ 
 }
-/*-------------------------------*/
+/*--------*/
 
 /* media queries */
 /* ------------------------------------------------------ */
