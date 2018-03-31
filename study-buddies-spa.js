@@ -285,6 +285,27 @@ $(document).on("click", function() {
   $(".user-avatar img.zoom").removeClass("zoom");
 });
 
+$(".login-area form").submit(function(e){
+  e.preventDefault();
+  $(".user-info .user-name").html($("#user-name").val());
+  $(".user-info .user-email").html($("#user-email").val());
+  $(".login-area").removeClass("display-flex");
+  $("main").addClass("display-flex");
+  $(".user-avatar, .logo").removeClass("no-display");
+  $(".study-alt").addClass("no-display");
+});
+$(".dropdown li:last-child").on("click", function(){
+  $("#user-name").val("");
+  $("#user-email").val("");
+  $(".user-info .user-name").html("");
+  $(".user-info .user-email").html("");
+  $(".login-area").addClass("display-flex");
+  $("main").removeClass("display-flex");
+  $(".user-avatar, .logo").addClass("no-display");
+  $(".study-alt").removeClass("no-display");
+});
+
+
 
 
 
@@ -298,7 +319,7 @@ const $projectBar = $("[data-panel-ref='projects']");
 
 
 // update progress when checkbox status changes
-$("input").change(function() {
+$("input[type=checkbox]").change(function() {
   const category = getCheckboxCategory($(this))
   const bar = $("[data-panel-ref='"+category+"']");
   updateBar(bar);
