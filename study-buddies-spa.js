@@ -1,4 +1,4 @@
-/* 
+/*
   * Copyright 2018 Study Buddies
   *  Notes [Sachin-3/22/2018]
   *  @Node class is used to represent checklist node
@@ -79,6 +79,8 @@ SBP.UI = {
                     $(this).prop('checked', isChecked);
                 }
             });
+            // Update Progress Bars
+            updateBars();
         }
         catch (ex) {
             console.log(ex.message);
@@ -203,26 +205,16 @@ $(function () {
 
 /*Angel & Steve*/
 $(function () {
-  $(".state-buttons").html($(".state-buttons").attr("data-start-state-text"));
   $(".tabs-nav li:first-child a").click();
-});
-
-
-$(".state-buttons").on("click",function(){
-  if($(this).attr("state") === "0") {
-    $(this).addClass("waiting");
-    $(this).html($(this).attr("data-first-state-text"));
-    $(this).attr("state", "1")
-  } else if($(this).attr("state") === "1") {
-    $(this).addClass("success");
-    $(this).removeClass("waiting");
-    $(this).html($(this).attr("data-second-state-text"));
-    $(this).attr("state", "2")
-  } else if($(this).attr("state") === "2") {
-    $(this).removeClass("success");
-    $(this).html($(this).attr("data-start-state-text"));
-    $(this).attr("state", "0")
-  }
+  $(".lesson-title").each(function() {
+    if($(this).find(".exercise-list input").length === $(this).find(".exercise-list input:checked").length) {
+      $(this).find(".check-box-label input").first().prop("checked", true);
+      $(this).find(".check-box-label .muted").addClass("active");
+    } else {
+      $(this).find(".check-box-label input").first().prop("checked", false);
+      $(this).find(".check-box-label .muted").removeClass("active");
+    }
+  });
 });
 
 
@@ -259,11 +251,7 @@ $("input[id*=-]").on("click", function(){
     $("#lesson" + lessonNumber[0]).prop("checked", false);
     $(this).parents(".lesson-title").find("span").removeClass("active");
   }
-  
-  
-   
-  
-  
+
 });
 
 $("[data-trigger=collapse]").on("click",function(){
@@ -279,6 +267,47 @@ $("[data-trigger=collapse]").on("click",function(){
   }
 });
 
+$("[data-toggle=dropdown]").on("click",function(e){
+  e.stopPropagation();
+  let toggleRef = "#" + $(this).attr("data-toggle-ref");
+  $(toggleRef).addClass("active");
+  $(toggleRef).css({
+    "right": 20,
+    "top" : 0,
+  });
+  $(".user-avatar img").addClass("zoom");
+});
+
+$(".dropdown li:first-child, img.zoom").on("click", function(e){
+  e.stopPropagation();
+});
+
+$(document).on("click", function() {
+  $(".dropdown").removeClass("active");
+  $(".user-avatar img.zoom").removeClass("zoom");
+});
+
+$(".login-area form").submit(function(e){
+  e.preventDefault();
+  $(".user-info .user-name").html($("#user-name").val());
+  $(".user-info .user-email").html($("#user-email").val());
+  $(".login-area").removeClass("display-flex");
+  $("main").addClass("display-flex");
+  $(".user-avatar, .logo").removeClass("no-display");
+  $(".study-alt").addClass("no-display");
+});
+$(".dropdown li:last-child").on("click", function(){
+  $("#user-name").val("");
+  $("#user-email").val("");
+  $(".user-info .user-name").html("");
+  $(".user-info .user-email").html("");
+  $(".login-area").addClass("display-flex");
+  $("main").removeClass("display-flex");
+  $(".user-avatar, .logo").addClass("no-display");
+  $(".study-alt").removeClass("no-display");
+});
+
+
 
 
 
@@ -292,7 +321,7 @@ const $projectBar = $("[data-panel-ref='projects']");
 
 
 // update progress when checkbox status changes
-$("input").change(function() {
+$("input[type=checkbox]").change(function() {
   const category = getCheckboxCategory($(this))
   const bar = $("[data-panel-ref='"+category+"']");
   updateBar(bar);
@@ -315,11 +344,11 @@ function getCheckboxCategory(checkbox) {
 // initial page load
 function updateBars() {
   const bars = [
-    $overallBar, 
-    $htmlBar, 
+    $overallBar,
+    $htmlBar,
     $cssBar,
-    $javascriptBar, 
-    $jqueryBar, 
+    $javascriptBar,
+    $jqueryBar,
     $projectBar
   ]
 
@@ -335,7 +364,7 @@ function updateBar(bar) {
   let width = 0; // bar progress
   const time = setInterval(fillBar, 0); // set animation speed
   const percent = getPercent(bar,progress); // get category percent
-  
+
   // initial bar size
   bar.css("width", width + "%") ;
   bar.text(percent.toFixed(1) + "%");
@@ -343,9 +372,9 @@ function updateBar(bar) {
   function fillBar() {
     if (width >= percent) {
       clearInterval(time); // stop interval
-    } 
+    }
     else {
-      width++; 
+      width++;
       bar.css("width", width + "%") ; // increase bar
       bar.text(percent.toFixed(1) + "%")
     }
@@ -357,7 +386,7 @@ function updateBar(bar) {
 function getProgress() {
   return progress = {
     overall: {
-      "checkedBoxes": $(".exercise-list input:checked").length, 
+      "checkedBoxes": $(".exercise-list input:checked").length,
       "totalBoxes": $(".exercise-list input").length
     },
     html: {
@@ -384,7 +413,7 @@ function getProgress() {
 }
 
 
-function getPercent(bar,progress) { 
+function getPercent(bar,progress) {
   if (bar.attr("class") === "progress default") {
     return (progress.overall.checkedBoxes / progress.overall.totalBoxes) * 100;
   }
@@ -393,7 +422,3 @@ function getPercent(bar,progress) {
     return (progress[category].checkedBoxes / progress[category].totalBoxes) * 100;
   }
 }
-
-
-
-
