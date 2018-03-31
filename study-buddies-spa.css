@@ -1048,3 +1048,26 @@ form input:focus {
 .no-display {
   display: none;
 }
+/*color-switcher*/
+.fa-paint-brush {
+position:absolute;
+  font-size: 20px;
+  color:#4F4D4D;
+ margin-left:93.5%;
+ margin-top: 0;
+}
+/*temporary location for the color switcher*/
+
+.fa-paint-brush:hover, .changeTheme:hover  {
+  cursor: pointer;
+}
+.changeTheme {
+  position:absolute;
+  font-size: 14px;
+  font-weight:bold;
+  color:#4F4D4D;
+margin-left:95%;
+ margin-top:0;
+ 
+}
+/*--------*/
