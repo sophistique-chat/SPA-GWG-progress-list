@@ -422,3 +422,9 @@ function getPercent(bar,progress) {
     return (progress[category].checkedBoxes / progress[category].totalBoxes) * 100;
   }
 }
+//Color switcher//
+
+$('.fa-paint-brush').click(function(){
+  
+ $('.initial').attr('href', '#style');
+});
