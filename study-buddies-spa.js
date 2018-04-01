@@ -270,18 +270,16 @@ $("[data-trigger=collapse]").on("click",function(){
 $("[data-toggle=dropdown]").on("click",function(e){
   e.stopPropagation();
   let toggleRef = "#" + $(this).attr("data-toggle-ref");
-  $(toggleRef).addClass("active");
+  $(toggleRef).toggleClass("active");
   $(toggleRef).css({
     "right": 20,
     "top" : 0,
   });
-  $(".user-avatar img").addClass("zoom");
+  $(".user-avatar img").toggleClass("zoom");
 });
-
-$(".dropdown li:first-child, img.zoom").on("click", function(e){
+$(".dropdown li:first-child").on("click", function(e){
   e.stopPropagation();
 });
-
 $(document).on("click", function() {
   $(".dropdown").removeClass("active");
   $(".user-avatar img.zoom").removeClass("zoom");
@@ -422,9 +420,10 @@ function getPercent(bar,progress) {
     return (progress[category].checkedBoxes / progress[category].totalBoxes) * 100;
   }
 }
-//Color switcher//
 
-$('.fa-paint-brush').click(function(){
-  
- $('.initial').attr('href', '#style');
+
+//Light Theme toggle//
+
+$('header').click(function () {
+  $('body').toggleClass('lighter');
 });
