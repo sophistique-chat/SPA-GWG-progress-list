@@ -481,8 +481,8 @@ a:hover {
 
 /* Buttons and Anchors */
 button, .button {
-   border: 1px solid #7E7C7F;
-   background-color: #7E7C7F;
+   border: 1px solid #778ea2;
+   background-color: #64788a;
    color: #fff;
    padding: 0.5em 1em;
    font-weight: 500;
@@ -493,7 +493,7 @@ button, .button {
    text-align: center;
  }
  button:hover, .button:hover {
-   background-color: #B3B0B5;
+   background-color: #778ea2;
    color: #fff;
    box-shadow: none;
    transition: 0.2s;
@@ -521,7 +521,7 @@ button, .button {
 .tabs-nav a:hover {
   background: #778ea2;
   cursor: pointer;
-  
+
 }
 .tabs-nav li:first-child a {
   border-top-left-radius: 5px;
@@ -566,15 +566,14 @@ button, .button {
 
 }
 /* we can add more colors but i'll put in here some examples */
-.primary, .active[data-class-ref="primary"] {
+ .primary, .active[data-class-ref="primary"] {
   background-color: #0280a4;
   border-color: #026f8d;
   box-shadow: inset 0 0 2px #026f8d;
   color: white;
-}
+} 
 .active[data-class-ref="primary"]:hover {
   background-color: #0280a4;
-
 }
 button.primary:hover, .button.primary:hover {
   background-color: #026f8d;
@@ -707,20 +706,16 @@ footer {
 .foot-note div {
   display: inline-block;
   line-height: 1.1em;
-  font-size: 10px;
+  font-size: 11px;
   text-rendering: optimizeLegibility;
   text-transform: capitalize;
 }
 .foot-note .text-left {
   text-align: right;
-  color: white;
-  width: 200px;
-  opacity: 0.8;
 }
-.text-right {
+.text-right, .text-left {
   color: white;
   width: 200px;
-  opacity:0.8;
 }
 .foot-note .icon {
   position: relative;
@@ -754,11 +749,9 @@ footer {
 }
 .social-links a:hover {
   color: white;
-  opacity:0.8;
 }
 .copyright:hover {
   color: white;
-  opacity: 0.8;
 }
 .copyright {
   color:#515154;
@@ -949,6 +942,7 @@ input.check-box:checked ~ label.text-label {
   text-align: left;
   padding: 5px 15px;
   color: #333;
+  height: 90px;
 }
 .dropdown li {
   border-bottom: 1px solid #fff;
@@ -996,8 +990,8 @@ input.check-box:checked ~ label.text-label {
   height: 85px;
 }
 .user-avatar img.zoom {
-  margin-top: -5px;
-  width: 85;
+  margin-top: 2px;
+  width: 85px;
   height: 85px;
 }
 
@@ -1269,3 +1263,155 @@ form input:focus {
 /*----------------------*/
 
 
+
+/* ------------------------------------------------------ */
+/* begin matt diamond changes */
+
+/* set minimum height for lesson panel */
+.task-list.col-width-7 {
+  min-height: 545px;
+}
+
+/* media queries */
+@media only screen and (max-width:1140px) {
+  .task-list .course-list {
+    margin-right: 0;
+    padding-left: 0;
+    transition: all .5s ease;
+  }
+  .task-list .panels {
+    padding: 2rem 2rem;
+  }
+  .lesson-title {
+    padding-right: 30px;
+  }
+  .lesson-title .muted {
+    right: 12px;
+  }
+  .social-links {
+    display: flex;
+    padding-left: 0;
+  }
+  .foot-note .text-left,
+  .foot-note .text-right  {
+    width: auto;
+  }
+}
+@media only screen and (max-width:1090px) {
+  .check-box-label {
+    font-size: 15px;
+    transition: font-size .5s ease;
+  }
+  .progress-panel .muted,
+  .task-list .muted,
+  .progress-panel label  {
+    font-size: 13px;
+    transition: font-size .5s ease;
+  }
+  .progress-panel.col-width-3 {
+    min-width: 300px;
+    transition: all .5s ease;
+  }
+  .task-list.col-width-7 {
+    width: 100%;
+    min-height: 531px;
+  }
+}
+/* move 'lesson completed' to new line */
+@media only screen and (max-width:1000px) {
+  .task-list .muted {
+    margin-top: 3px;
+    position: static;
+    width: 123px;
+  }
+}
+@media only screen and (max-width:865px) {
+  .progress-panel label,
+  .progress-panel .muted  {
+    font-size: 12px;
+  }
+  .progress-panel.col-width-3 {
+    min-width: 280px;
+  }
+  .task-list.col-width-7 {
+    min-height: 526px;
+  }
+}
+@media only screen and (max-width:730px) {
+  .progress-panel .muted,
+  .progress-panel label  {
+    font-size: 11px;
+  }
+  .progress-panel.col-width-3 {
+    min-width: 250px;
+    padding-right: .5rem;
+  }
+  .task-list.col-width-7 {
+    min-height: 520px;
+  }
+}
+@media only screen and (max-width:640px) {
+  /* change main container to 1 column layout */
+  html {
+    height: 100%;
+  }
+  body {
+    min-height: 100%;
+    height: auto;
+    overflow: auto;
+  }
+  #main-container main {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  footer {
+    justify-self: flex-end;
+  }
+  .task-list {
+    height: auto;
+  }
+  .course-list {
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .progress-panel.col-width-3 {
+    width: 100%;
+    padding-right: 1rem;
+    transition: all 0s ease;
+  }
+  .task-list.col-width-7 {
+    width: 100%;
+  }
+  .panels {
+    padding: 2rem 2rem;
+    max-height: 500px;
+  }
+  .task-list.col-width-7 {
+    min-height: auto;
+  }
+  /* change footer to single column  */
+  footer {
+    flex-direction: column;
+    height: auto;
+  }
+  .copyright {
+    padding: 1rem 0;
+  }
+  .social-links {
+    margin: 1rem 25px 1rem 0;
+  }
+  /* restore font size for progress bar labels */
+  .progress-panel .muted,
+  .progress-panel label {
+    font-size: 14px;
+  }
+}
+/* decrease padding around panels */
+@media only screen and (max-width:550px) {
+  .task-list,
+  .progress-panel {
+    padding: 1rem .5rem;
+    transition: padding .5s ease;
+  }
+}
