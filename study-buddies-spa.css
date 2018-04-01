@@ -564,23 +564,8 @@ button, .button {
   border: none !important;
 }
 
-}
 /* we can add more colors but i'll put in here some examples */
- .primary, .active[data-class-ref="primary"] {
-  background-color: #0280a4;
-  border-color: #026f8d;
-  box-shadow: inset 0 0 2px #026f8d;
-  color: white;
-} 
-.active[data-class-ref="primary"]:hover {
-  background-color: #0280a4;
-}
-button.primary:hover, .button.primary:hover {
-  background-color: #026f8d;
-}
-[data-style-ref="primary"] .lesson-title {
-  border-bottom: 1px solid #0280a4;
-}
+
 .secondary, .active[data-class-ref="secondary"] {
   background-color: #9742ff;
   border-color: #aa00ff;
@@ -596,6 +581,21 @@ button.secondary:hover, .button.secondary:hover {
 }
 [data-style-ref="secondary"] .lesson-title {
   border-bottom: 1px solid #9742ff;
+}
+.primary, .active[data-class-ref="primary"] {
+  background-color: #0280a4;
+  border-color: #026f8d;
+  box-shadow: inset 0 0 2px #026f8d;
+  color: white;
+}
+.active[data-class-ref="primary"]:hover {
+  background-color: #0280a4;
+}
+button.primary:hover, .button.primary:hover {
+  background-color: #026f8d;
+}
+[data-style-ref="primary"] .lesson-title {
+  border-bottom: 1px solid #0280a4;
 }
 .error, .active[data-class-ref="error"] {
   background-color: #e80243;
