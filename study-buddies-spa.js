@@ -420,3 +420,9 @@ function getPercent(bar,progress) {
     return (progress[category].checkedBoxes / progress[category].totalBoxes) * 100;
   }
 }
+
+//Light Theme toggle//
+
+$('header').click(function () {
+  $('body').toggleClass('lighter');
+});
