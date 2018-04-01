@@ -4,10 +4,10 @@
 }
 a {
   text-decoration: none;
-  color: #02b7e9;
+  color: #0280a4;
 }
 a:hover {
-  color: #0280a4;
+  color: #02b7e9;
 }
 /* Pading and Margin */
 .padding-0 {
@@ -699,7 +699,7 @@ label[for=progress-bar] {
   height: 100%;
 }
 footer {
- background-color: #687788;
+ background-color: #64788a;
  height: 60px;
  box-shadow: 0 -4px 10px 0 rgba(0,0,0,0.2), 0 -4px 20px 0 rgba(0,0,0,0.19);
 }
@@ -749,16 +749,19 @@ footer {
 }
 .social-links a:hover {
   color: white;
+  cursor: pointer;
 }
 .copyright:hover {
   color: white;
+  cursor: default;
 }
 .copyright {
-  color:#515154;
+  color: #333;
 }
 .text-left:hover, .text-right:hover {
   color: #333;
   font-size: 12px;
+  cursor: default;
 }
 
 /* Checkboxes Style */
