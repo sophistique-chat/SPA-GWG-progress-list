@@ -329,7 +329,7 @@ $("input[type=checkbox]").change(function() {
 
 // return sanitized category values
 function getCheckboxCategory(checkbox) {
-  console.log(checkbox.attr("data-category-type"));
+
   if (checkbox.attr("data-category-type") ===  "project") {
     return "projects"
   }
@@ -360,8 +360,9 @@ updateBars();
 function updateBar(bar) {
   const progress = getProgress();
   let width = 0; // bar progress
-  const time = setInterval(fillBar, 0); // set animation speed
   const percent = getPercent(bar,progress); // get category percent
+  const time = setInterval(fillBar, 0); // set animation speed
+  
 
   // initial bar size
   bar.css("width", width + "%") ;
@@ -383,10 +384,10 @@ function updateBar(bar) {
 // return user progress properties
 function getProgress() {
   return progress = {
-    overall: {
-      "checkedBoxes": $(".exercise-list input:checked").length,
-      "totalBoxes": $(".exercise-list input").length
-    },
+    // overall: {
+    //   "checkedBoxes": $(".exercise-list input:checked").length,
+    //   "totalBoxes": $(".exercise-list input").length
+    // },
     html: {
       "checkedBoxes": $(".exercise-list input[data-category-type='html']:checked").length,
       "totalBoxes": $(".exercise-list input[data-category-type='html']").length
@@ -412,8 +413,13 @@ function getProgress() {
 
 
 function getPercent(bar,progress) {
-  if (bar.attr("class") === "progress default") {
-    return (progress.overall.checkedBoxes / progress.overall.totalBoxes) * 100;
+
+  if (bar.attr("class") === "progress default") { // overall bar
+    let total =0;
+    for (progressItem in progress) {
+        total += (progress[progressItem].checkedBoxes / progress[progressItem].totalBoxes) * 20;
+    }
+    return total;
   }
   else {
     const category = bar.attr("data-panel-ref");
