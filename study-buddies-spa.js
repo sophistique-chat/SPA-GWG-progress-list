@@ -89,7 +89,8 @@ SBP.UI = {
 
     refreshPage: function () {
         try {
-            // Update progress bars and other UI changes.
+            //SBP.UI.bindPage();
+            //SBP.Events.bindEvents();
         }
         catch (ex) {
             console.log(ex.message);
@@ -190,7 +191,27 @@ SBP.Helpers = {
 };
 
 $(function () {
-    try {
+  $(".login-area form").addClass("no-display");
+   if(sessionStorage.getItem("isLoggedIn")==="yes"){
+            $(".login-area form").addClass("no-display");
+            $(".study-alt").addClass("no-display");
+            $("div.login-area").removeClass("display-flex");
+            $(".user-info .user-name").html(sessionStorage.getItem("username"));
+            $(".user-info .user-email").html(sessionStorage.getItem("email"));
+            $("main").addClass("display-flex");
+            $(".user-avatar, .logo").removeClass("no-display");
+
+    }
+    else{
+            $(".login-area form").removeClass("no-display");
+            $(".study-alt").removeClass("no-display");
+            $(".login-area").addClass("display-flex");
+            $("main").removeClass("display-flex");
+            $(".user-avatar, .logo").addClass("no-display");
+
+    }
+    try{
+
         SBP.UI.bindPage();
         SBP.Events.bindEvents();
     }
@@ -198,10 +219,6 @@ $(function () {
         console.log(ex.message);
     }
 });
-
-
-
-
 
 /*Angel & Steve*/
 $(function () {
@@ -270,14 +287,14 @@ $("[data-trigger=collapse]").on("click",function(){
 $("[data-toggle=dropdown]").on("click",function(e){
   e.stopPropagation();
   let toggleRef = "#" + $(this).attr("data-toggle-ref");
-  $(toggleRef).addClass("active");
+  $(toggleRef).toggleClass("active");
   $(toggleRef).css({
     "right": 20,
     "top" : 0,
   });
-  $(".user-avatar img").addClass("zoom");
+  $(".user-avatar img").toggleClass("zoom");
 });
-$(".dropdown li:first-child, img.zoom").on("click", function(e){
+$(".dropdown li:first-child").on("click", function(e){
   e.stopPropagation();
 });
 $(document).on("click", function() {
@@ -285,28 +302,63 @@ $(document).on("click", function() {
   $(".user-avatar img.zoom").removeClass("zoom");
 });
 
+//on click event session start
 $(".login-area form").submit(function(e){
-  e.preventDefault();
-  $(".user-info .user-name").html($("#user-name").val());
-  $(".user-info .user-email").html($("#user-email").val());
-  $(".login-area").removeClass("display-flex");
-  $("main").addClass("display-flex");
-  $(".user-avatar, .logo").removeClass("no-display");
-  $(".study-alt").addClass("no-display");
+    e.preventDefault();
+    sessionStorage.setItem("username",$("#user-name").val());
+    sessionStorage.setItem("email",$("#user-email").val());
+    //For page refresh storing the page name
+    sessionStorage.setItem("isLoggedIn","yes");
+
+    $(".login-area form").addClass("no-display");//added by rashmi
+    $(".study-alt").addClass("no-display");
+    $(".user-info .user-name").html(sessionStorage.getItem("username"));
+    $(".user-info .user-email").html(sessionStorage.getItem("email"));
+    $(".login-area").removeClass("display-flex");
+    $("main").addClass("display-flex");
+    $(".user-avatar, .logo").removeClass("no-display");
 });
+//logout on click event
 $(".dropdown li:last-child").on("click", function(){
-  $("#user-name").val("");
-  $("#user-email").val("");
-  $(".user-info .user-name").html("");
-  $(".user-info .user-email").html("");
-  $(".login-area").addClass("display-flex");
-  $("main").removeClass("display-flex");
-  $(".user-avatar, .logo").addClass("no-display");
-  $(".study-alt").removeClass("no-display");
+    $(".login-area form").removeClass("no-display");
+    $(".study-alt").removeClass("no-display");
+    $(".login-area").addClass("display-flex");
+    $("main").removeClass("display-flex");
+    $(".user-avatar, .logo").addClass("no-display");
+
+    sessionStorage.removeItem("isLoggedIn");
+    //remove the user info on logout
+    sessionStorage.removeItem("name");
+    sessionStorage.removeItem("email");
+
 });
 
-
-
+//  Modal
+$("[data-toggle=modal]").on("click", function(){
+  let refElement = $(this).attr("href");
+  $("#user-name-changer").val($(".user-info .user-name").html());
+  $("#user-email-changer").val($(".user-info .user-email").html());
+  $(refElement).addClass("active");
+});
+$("#changer-accept").on("click", function(e) {
+  e.preventDefault();
+  sessionStorage.setItem("username",$("#user-name-changer").val());
+  sessionStorage.setItem("email",$("#user-email-changer").val());
+  $(".user-info .user-name").html($("#user-name-changer").val());
+  $(".user-info .user-email").html($("#user-email-changer").val());
+  if($("#theme-selector").val() === "lighter") {
+    $("body").addClass("lighter");
+  } else {
+    $("body").removeClass("lighter");
+  }
+  $(".modal").removeClass("active");
+});
+$("#changer-discard").on("click", function(e) {
+  e.preventDefault();
+  $(".modal").removeClass("active");
+  $("#user-name-changer").val($(".user-info .user-name").html());
+  $("#user-email-changer").val($(".user-info .user-email").html());
+});
 
 
 // bar selectors
@@ -322,7 +374,6 @@ const $projectBar = $("[data-panel-ref='projects']");
 $("input[type=checkbox]").change(function() {
   const category = getCheckboxCategory($(this))
   const bar = $("[data-panel-ref='"+category+"']");
-
   updateBar(bar);
   updateBar($overallBar)
 });
@@ -330,7 +381,7 @@ $("input[type=checkbox]").change(function() {
 
 // return sanitized category values
 function getCheckboxCategory(checkbox) {
-
+  console.log(checkbox.attr("data-category-type"));
   if (checkbox.attr("data-category-type") ===  "project") {
     return "projects"
   }
@@ -339,35 +390,9 @@ function getCheckboxCategory(checkbox) {
   }
 }
 
-function getBarCategory(bar) {
-
-    let dataCategory = bar[0].attributes[0].nodeValue;
-    
-    if (dataCategory === "progress default") {
-        return "overall";
-    }
-    else if (dataCategory === "html") {
-        return "html";
-    }
-    else if (dataCategory === "css") {
-        return "css";
-    }
-    else if (dataCategory === "javascript") {
-        return "javascript";
-    }
-    else if (dataCategory === "jquery") {
-        return "jquery";
-    }
-    else if (dataCategory === "projects") { 
-        return "projects";
-    }
-    
-}
-
 
 // initial page load
 function updateBars() {
-
   const bars = [
     $overallBar,
     $htmlBar,
@@ -385,17 +410,11 @@ updateBars();
 
 
 function updateBar(bar) {
-
   const progress = getProgress();
-  const category = getBarCategory(bar);
-
-  
-  let width = 0 // bar progress
-//   console.log(parseInt((bar.width() / bar.parents().width() * 100)));
-  const percent = getPercent(bar,progress); // get category percent
-//   console.log("percentage",percent,"width",width);
+  let width = 0; // bar progress
   const time = setInterval(fillBar, 0); // set animation speed
-  
+  const percent = getPercent(bar,progress); // get category percent
+
   // initial bar size
   bar.css("width", width + "%") ;
   bar.text(percent.toFixed(1) + "%");
@@ -406,25 +425,15 @@ function updateBar(bar) {
     }
     else {
       width++;
-      bar.css("width", width + "%"); // increase bar
-    //   bar.text(progress[category].checkedBoxes + "/" + progress[category].totalBoxes + " Completed "  + "(" + percent.toFixed(1) + "%" + ")");
-    //   console.log(percent);
+      bar.css("width", width + "%") ; // increase bar
+      bar.text(percent.toFixed(1) + "%")
     }
-    
   }
-  bar.text(percent.toFixed() + "%");
-
-  $("label span.muted.margin-left-auto").text("");
-
-
-
 }
-
 
 
 // return user progress properties
 function getProgress() {
-
   return progress = {
     overall: {
       "checkedBoxes": $(".exercise-list input:checked").length,
@@ -432,7 +441,7 @@ function getProgress() {
     },
     html: {
       "checkedBoxes": $(".exercise-list input[data-category-type='html']:checked").length,
-      "totalBoxes": $(".exercise-list input[data-category-type='html']").length,
+      "totalBoxes": $(".exercise-list input[data-category-type='html']").length
     },
     css: {
       "checkedBoxes": $(".exercise-list input[data-category-type='css']:checked").length,
@@ -455,27 +464,11 @@ function getProgress() {
 
 
 function getPercent(bar,progress) {
-
-  if (bar.attr("class") === "progress default") { // overall bar
-    let total = 0;
-
-    for (progressItem in progress) {
-        if (progressItem !== "overall") {
-            total += (progress[progressItem].checkedBoxes / progress[progressItem].totalBoxes) * 20;
-        } 
-    }
-    return total;
+  if (bar.attr("class") === "progress default") {
+    return (progress.overall.checkedBoxes / progress.overall.totalBoxes) * 100;
   }
   else {
     const category = bar.attr("data-panel-ref");
-    
     return (progress[category].checkedBoxes / progress[category].totalBoxes) * 100;
   }
 }
-
-
-//Light Theme toggle//
-
-$('header').click(function () {
-  $('body').toggleClass('lighter');
-});

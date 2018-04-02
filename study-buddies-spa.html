@@ -28,17 +28,17 @@
         </div>
         <div class="user-avatar-space"></div>
       </li>
-      <li><a href="#">Change Account Info</a></li>
+      <li><a href="#changer-modal" data-toggle="modal">Change Account Info</a></li>
       <li><a href="#">Logout</a></li>
     </ul>
     </figure>
   </header>
-  <div class="login-area display-flex flex-justify-content-around">
+  <div class="login-area no-display flex-justify-content-around">
       <form class="margin-y-auto">
         <label for="user-name">User Name</label>
-        <input type="text" name="user-name" id="user-name" required>
+        <input type="text" name="user-name" id="user-name" title="Please enter your name" placeholder="Your Name" required>
         <label for="user-name">Email Address</label>
-        <input type="email" name="user-email"  id="user-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter a valid email address" placeholder="example@site.com" required>
+        <input type="email" name="user-email"  id="user-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter a valid email address" placeholder="example@domain.com" required>
         <a href="#">i have a previous session!</a>
         <input type="submit" value="Start Session" class="button">
       </form>
@@ -1530,6 +1530,32 @@
         <li><a href="#"><i class="fab fa-instagram"></i></a></li>
       </ul>
     </footer>
+    <div class="modal display-flex flex-justify-content-around" id="changer-modal">
+      <div class="modal-container">
+        <form>
+        <div class="modal-header padding-y-2 padding-x-2">
+          <figure>
+            <img src="https://s26.postimg.org/cw5bs6g55/user.jpg" alt="(User Name) Avatar">
+          </figure>
+        </div>
+        <div class="modal-body padding-x-5 padding-y-4">
+          <label for="user-name-changer">Change Your Name</label>
+          <input type="text" name="user-name-changer" id="user-name-changer" title="Please enter your name" placeholder="Your Name" required>
+          <label for="user-email-changer">Change Your Email</label>
+          <input type="email" name="user-email-changer" id="user-email-changer" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter a valid email address" placeholder="example@domain.com" required>
+          <label for="theme-selector">Select Your Theme</label>
+          <select name="theme-selector" id="theme-selector">
+            <option value="darker" selected>Darker Theme</option>
+            <option value="lighter">Lighter Theme</option>
+          </select>
+        </div>
+        <div class="modal-footer padding-y-3">
+          <button class="primary" id="changer-accept">Accept Changes</button>
+          <button class="error" id="changer-discard">Discard Changes</button>
+        </div>
+        </form>
+      </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="study-buddies-spa.js"></script>
   </body>
