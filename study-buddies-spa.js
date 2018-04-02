@@ -270,14 +270,14 @@ $("[data-trigger=collapse]").on("click",function(){
 $("[data-toggle=dropdown]").on("click",function(e){
   e.stopPropagation();
   let toggleRef = "#" + $(this).attr("data-toggle-ref");
-  $(toggleRef).toggleClass("active");
+  $(toggleRef).addClass("active");
   $(toggleRef).css({
     "right": 20,
     "top" : 0,
   });
-  $(".user-avatar img").toggleClass("zoom");
+  $(".user-avatar img").addClass("zoom");
 });
-$(".dropdown li:first-child").on("click", function(e){
+$(".dropdown li:first-child, img.zoom").on("click", function(e){
   e.stopPropagation();
 });
 $(document).on("click", function() {
