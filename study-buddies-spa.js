@@ -191,8 +191,22 @@ SBP.Helpers = {
 };
 
 $(function () {
+
+
+/*Angel & Steve*/
+$(function () {
+  $(".tabs-nav li:first-child a").click();
+  $(".lesson-title").each(function() {
+    if($(this).find(".exercise-list input").length === $(this).find(".exercise-list input:checked").length) {
+      $(this).find(".check-box-label input").first().prop("checked", true);
+      $(this).find(".check-box-label .muted").addClass("active");
+    } else {
+      $(this).find(".check-box-label input").first().prop("checked", false);
+      $(this).find(".check-box-label .muted").removeClass("active");
+    }
+  });
   $(".login-area form").addClass("no-display");
-   if(sessionStorage.getItem("isLoggedIn")==="yes"){
+  if(sessionStorage.getItem("isLoggedIn")==="yes"){
             $(".login-area form").addClass("no-display");
             $(".study-alt").addClass("no-display");
             $("div.login-area").removeClass("display-flex");
@@ -219,19 +233,6 @@ $(function () {
         console.log(ex.message);
     }
 });
-
-/*Angel & Steve*/
-$(function () {
-  $(".tabs-nav li:first-child a").click();
-  $(".lesson-title").each(function() {
-    if($(this).find(".exercise-list input").length === $(this).find(".exercise-list input:checked").length) {
-      $(this).find(".check-box-label input").first().prop("checked", true);
-      $(this).find(".check-box-label .muted").addClass("active");
-    } else {
-      $(this).find(".check-box-label input").first().prop("checked", false);
-      $(this).find(".check-box-label .muted").removeClass("active");
-    }
-  });
 });
 
 
@@ -335,7 +336,7 @@ $(".dropdown li:last-child").on("click", function(){
 
 //  Modal
 $("[data-toggle=modal]").on("click", function(){
-  let refElement = $(this).attr("href");
+  let refElement = "#" + $(this).attr("data-toggle-modal");
   $("#user-name-changer").val($(".user-info .user-name").html());
   $("#user-email-changer").val($(".user-info .user-email").html());
   $(refElement).addClass("active");

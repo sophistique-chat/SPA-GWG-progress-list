@@ -965,6 +965,7 @@ input.check-box:checked ~ label.text-label {
 }
 .dropdown li a:hover {
   background-color: #778ea2;
+  cursor: pointer;
 }
 .dropdown img {
   width: 80px;
