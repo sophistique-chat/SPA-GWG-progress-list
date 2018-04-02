@@ -708,7 +708,6 @@ footer {
   line-height: 1.1em;
   font-size: 11px;
   text-rendering: optimizeLegibility;
-  text-transform: capitalize;
 }
 .foot-note .text-left {
   text-align: right;
@@ -1024,7 +1023,6 @@ form input:focus {
 .login-area a {
   text-align: center;
   padding: 10px;
-  text-transform: capitalize;
 }
 .login-area {
   display: none;
