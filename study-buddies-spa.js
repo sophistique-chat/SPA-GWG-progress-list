@@ -195,6 +195,14 @@ $(function () {
 
 /*Angel & Steve*/
 $(function () {
+  try{
+
+      SBP.UI.bindPage();
+      SBP.Events.bindEvents();
+  }
+  catch (ex) {
+      console.log(ex.message);
+  }
   $(".tabs-nav li:first-child a").click();
   $(".lesson-title").each(function() {
     if($(this).find(".exercise-list input").length === $(this).find(".exercise-list input:checked").length) {
@@ -224,14 +232,7 @@ $(function () {
             $(".user-avatar, .logo").addClass("no-display");
 
     }
-    try{
 
-        SBP.UI.bindPage();
-        SBP.Events.bindEvents();
-    }
-    catch (ex) {
-        console.log(ex.message);
-    }
 });
 });
 
