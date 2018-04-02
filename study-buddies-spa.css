@@ -1077,7 +1077,7 @@ form input:focus {
   background-color: #96C1E4;
   border-color: #A1CFF4;
   box-shadow: inset 0 0 2px white;
- color:white;
+ color:black;
 }
 .lighter .active[data-class-ref="primary"]:hover  {
   background-color: #A1CFF4;
@@ -1093,7 +1093,7 @@ form input:focus {
   background-color: #FFBBB1;
   border-color: #D49D95;
   box-shadow: inset 0 0 2px  white;
-  color:white;
+  color:black;
 }
 .lighter .active[data-class-ref="secondary"]:hover  {
   background-color: #FFC2BB;
@@ -1109,7 +1109,7 @@ form input:focus {
   background-color: #AE9DEF;
   border-color: #9A8BD6;
   box-shadow: inset 0 0 2px white;
-  color:white;
+  color:black;
 }
 .lighter .active[data-class-ref="error"]:hover  {
   background-color: #B8A6FF;
@@ -1125,7 +1125,7 @@ form input:focus {
   background-color: #F7DE68;
   border-color: #F4EB9B;
   box-shadow: inset 0 0 2px white;
-  color:white;
+  color:black;
 }
 .lighter .active[data-class-ref="waiting"]:hover  {
   background-color: #FFE473;
@@ -1141,7 +1141,7 @@ form input:focus {
   background-color: #B5DCA3;
   border-color: #7D9876;
   box-shadow: inset 0 0 2px  white;
-  color:white;
+  color:black;
 }
 .lighter .active[data-class-ref="success"]:hover  {
   background-color: #B8E3AB;
