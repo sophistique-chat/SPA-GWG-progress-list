@@ -1053,7 +1053,9 @@ input[type=text]:focus, input[type=email]:focus {
 }
 
 /*Light Theme Colors---------------------------------*/
-
+.lighter header {
+  background-color: #69B0DE;
+}
 .lighter .tabs-nav a  {
  padding: 0.75rem;
  display: inline-block;
