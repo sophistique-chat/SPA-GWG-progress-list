@@ -222,6 +222,13 @@ $(function () {
             $(".user-info .user-email").html(sessionStorage.getItem("email"));
             $("main").addClass("display-flex");
             $(".user-avatar, .logo").removeClass("no-display");
+            if(sessionStorage.getItem("theme") === "lighter") {
+              $("body").addClass("lighter");
+              $(".tabs-nav li a.active").click();
+            } else {
+              $("body").removeClass("lighter");
+              $(".tabs-nav li a.active").click();
+            }
 
     }
     else{
@@ -309,6 +316,7 @@ $(".login-area form").submit(function(e){
     e.preventDefault();
     sessionStorage.setItem("username",$("#user-name").val());
     sessionStorage.setItem("email",$("#user-email").val());
+    sessionStorage.setItem("theme","darker");
     //For page refresh storing the page name
     sessionStorage.setItem("isLoggedIn","yes");
 
@@ -346,12 +354,15 @@ $("#changer-accept").on("click", function(e) {
   e.preventDefault();
   sessionStorage.setItem("username",$("#user-name-changer").val());
   sessionStorage.setItem("email",$("#user-email-changer").val());
+  sessionStorage.setItem("theme",$("#theme-selector").val());
   $(".user-info .user-name").html($("#user-name-changer").val());
   $(".user-info .user-email").html($("#user-email-changer").val());
   if($("#theme-selector").val() === "lighter") {
     $("body").addClass("lighter");
+    $(".tabs-nav li a.active").click();
   } else {
     $("body").removeClass("lighter");
+    $(".tabs-nav li a.active").click();
   }
   $(".modal").removeClass("active");
 });
