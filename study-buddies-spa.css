@@ -698,6 +698,7 @@ label[for=progress-bar] {
 }
 .muted {
   color: #999;
+  display: none;
 }
 .tab-panel {
   height: 100%;
