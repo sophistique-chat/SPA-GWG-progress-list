@@ -229,6 +229,7 @@ $(function () {
               $("body").removeClass("lighter");
               $(".tabs-nav li a.active").click();
             }
+            $("#theme-selector").val(sessionStorage.getItem("theme"));
 
     }
     else{
