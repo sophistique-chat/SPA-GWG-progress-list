@@ -407,11 +407,12 @@ function updateBar(bar) {
     else {
       width++;
       bar.css("width", width + "%"); // increase bar
-      bar.text(progress[category].checkedBoxes + "/" + progress[category].totalBoxes + " Completed "  + "(" + percent.toFixed(1) + "%" + ")");
+    //   bar.text(progress[category].checkedBoxes + "/" + progress[category].totalBoxes + " Completed "  + "(" + percent.toFixed(1) + "%" + ")");
     //   console.log(percent);
     }
     
   }
+  bar.text(percent.toFixed() + "%");
 
   $("label[for='progress-bar'] .muted").text("");
 
