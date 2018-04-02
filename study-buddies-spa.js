@@ -414,7 +414,7 @@ function updateBar(bar) {
   }
   bar.text(percent.toFixed() + "%");
 
-  $("label[for='progress-bar'] .muted").text("");
+  $("label span.muted.margin-left-auto").text("");
 
 
 
